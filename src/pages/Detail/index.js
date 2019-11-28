@@ -18,11 +18,33 @@ const POKEMON = gql`
       number
       name
       image
+      weight {
+        minimum
+        maximum
+      }
+      height {
+        minimum
+        maximum
+      }
+      attacks {
+        fast {
+          name
+          type
+          damage
+        }
+        special {
+          name
+          type
+          damage
+        }
+      }
       fleeRate
       classification
       resistant
       types
       weaknesses
+      maxCP
+      maxHP
     }
   }
 `
@@ -47,9 +69,10 @@ function RenderItemPokemon({ item }) {
               <tr>
                 <th>#</th>
                 <th>Name</th>
+                <th>Weight</th>
+                <th>Height</th>
                 <th>Resistant</th>
                 <th>Types</th>
-                <th>Weaknesses</th>
               </tr>
             </thead>
             <tbody>
@@ -71,6 +94,14 @@ function RenderItemPokemon({ item }) {
                     {item.pokemon.fleeRate}
                   </Badge>
                   <p>{item.pokemon.classification}</p>
+                </td>
+                <td>
+                  <p>Minimum : {item.pokemon.weight.minimum}</p>
+                  <p>Maximum : {item.pokemon.weight.maximum}</p>
+                </td>
+                <td>
+                  <p>Minimum : {item.pokemon.height.minimum}</p>
+                  <p>Maximum : {item.pokemon.height.maximum}</p>
                 </td>
                 <td>
                   <React.Fragment>
@@ -98,6 +129,18 @@ function RenderItemPokemon({ item }) {
                     ))}
                   </React.Fragment>
                 </td>
+              </tr>
+              <tr>
+                <th rowSpan="2">Weaknesses</th>
+                <th rowSpan="2">MaxCP</th>
+                <th rowspan="2">MaxHp</th>
+                <th colSpan="2">Attacking</th>
+              </tr>
+              <tr>
+                <th>Fast</th>
+                <th>Special</th>
+              </tr>
+              <tr>
                 <td>
                   <React.Fragment>
                     {item.pokemon.weaknesses.map(item => (
@@ -108,6 +151,38 @@ function RenderItemPokemon({ item }) {
                       >
                         {item}
                       </Badge>
+                    ))}
+                  </React.Fragment>
+                </td>
+                <td>{item.pokemon.maxCP}</td>
+                <td>{item.pokemon.maxHP}</td>
+                <td>
+                  <React.Fragment>
+                    {item.pokemon.attacks.fast.map((items, i) => (
+                      <p>
+                        {items.name}{' '}
+                        <Badge pill variant="success">
+                          type: {items.type}
+                        </Badge>
+                        <Badge pill variant="danger">
+                          damage: {items.damage}
+                        </Badge>
+                      </p>
+                    ))}
+                  </React.Fragment>
+                </td>
+                <td>
+                  <React.Fragment>
+                    {item.pokemon.attacks.special.map((items, i) => (
+                      <p>
+                        {items.name}{' '}
+                        <Badge pill variant="success">
+                          type: {items.type}
+                        </Badge>
+                        <Badge pill variant="danger">
+                          damage: {items.damage}
+                        </Badge>
+                      </p>
                     ))}
                   </React.Fragment>
                 </td>
