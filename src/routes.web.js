@@ -10,7 +10,7 @@ import Detail from './pages/Detail'
 export default function RouterApp() {
   return (
     <Router>
-      <div>
+      <React.Fragment>
         <Switch>
           <Route path="/" exact>
             <Home />
@@ -19,7 +19,7 @@ export default function RouterApp() {
             <Detail />
           </Route>
         </Switch>
-      </div>
+      </React.Fragment>
     </Router>
   )
 }

@@ -20,7 +20,7 @@ export default function Navigation() {
         <Container>
           <Navbar.Brand href="/">
             <FontAwesomeIcon icon={faPastafarianism} /> Pokemount -
-            Apps Pokemon List
+            Apps
           </Navbar.Brand>
         </Container>
       </Navbar>
