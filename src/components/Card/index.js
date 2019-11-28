@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Card, Badge, Accordion, Button } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -7,8 +8,9 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 
 function StyledCard({
+  id,
   imageUrl,
-  title,
+  name,
   number,
   classification,
   fleeRate,
@@ -23,7 +25,7 @@ function StyledCard({
           <FontAwesomeIcon icon={faChevronCircleRight} /> {number}
         </Badge>
         <Card.Title>
-          <h3>{title}</h3>
+        <h3>{name}</h3>
         </Card.Title>
         <Card.Subtitle>
           {classification}{' '}
@@ -79,6 +81,13 @@ function StyledCard({
           </Accordion>
         </Card.Text>
       </Card.Body>
+      <Card.Footer>
+        <Link to={`/detail/${id}/${name}`}>
+          <Button variant="primary" block>
+            Detail
+          </Button>
+        </Link>
+      </Card.Footer>
     </Card>
   )
 }

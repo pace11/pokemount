@@ -70,7 +70,7 @@ function RenderItemPokemon({ item }) {
                     <FontAwesomeIcon icon={faStar} />{' '}
                     {item.pokemon.fleeRate}
                   </Badge>
-                  {item.pokemon.classification}
+                  <p>{item.pokemon.classification}</p>
                 </td>
                 <td>
                   <React.Fragment>
