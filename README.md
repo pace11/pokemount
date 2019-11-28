@@ -1,5 +1,17 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+
+## Use 
+- [x] GraphQL
+- [x] Apollo | Hooks
+- [x] Netlify for Hosting Serverless
+- [x] CI/CD Github
+
+
+## Live 
+- [x] Production [here](https://optimistic-yalow-f4bcbe.netlify.com/)
+
+
 ## Available Scripts
 
 In the project directory, you can run:
