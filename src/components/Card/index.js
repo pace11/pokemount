@@ -16,7 +16,7 @@ function StyledCard({
   types,
 }) {
   return (
-    <Card>
+    <Card style={{ boxShadow: '2px 3px 10px -8px #000000' }}>
       <Card.Img variant="top" src={imageUrl} alt={imageUrl} />
       <Card.Body>
         <Badge pill variant="success">
@@ -32,9 +32,7 @@ function StyledCard({
             variant="primary"
             style={{ marginBottom: '5px' }}
           >
-            {' '}
-            <FontAwesomeIcon icon={faStar} />
-            {fleeRate}
+            <FontAwesomeIcon icon={faStar} /> {fleeRate}
           </Badge>
         </Card.Subtitle>
         <Card.Text>
