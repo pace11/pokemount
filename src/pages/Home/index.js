@@ -2,9 +2,11 @@ import React from 'react'
 // import { Link } from 'react-router-dom'
 import { useQuery } from '@apollo/react-hooks'
 import { gql } from 'apollo-boost'
-import { Container, Row, CardColumns } from 'react-bootstrap'
+import { Container, Row, CardColumns, Col } from 'react-bootstrap'
 import Card from '../../components/Card'
+import StyledError from '../../components/Error'
 import Layout from '../../components/Layout'
+import StyledLoading from '../../assets/icons/Loading'
 
 const POKEMONS = gql`
   query getAllPokemons($first: Int!) {
@@ -28,13 +30,24 @@ function Home() {
     },
   })
 
-  if (loading) return <p>Loading...</p>
-  if (error) return <p>Error :(</p>
-
   return (
     <Layout>
       <h3>List All Pokemons</h3>
       <Container style={{ marginTop: '40px' }}>
+        {loading && (
+          <Row>
+            <Col>
+              <StyledLoading />
+            </Col>
+          </Row>
+        )}
+        {error && (
+          <Row>
+            <Col>
+              <StyledError />
+            </Col>
+          </Row>
+        )}
         <Row>
           <CardColumns>
             {data &&
