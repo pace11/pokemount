@@ -1,5 +1,5 @@
 import React from 'react'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useQuery } from '@apollo/react-hooks'
 import { gql } from 'apollo-boost'
 import { Container, Row, CardColumns, Col } from 'react-bootstrap'
@@ -32,8 +32,8 @@ function Home() {
 
   return (
     <Layout>
+      <Container style={{ marginTop: '60px' }}>
       <h3>List All Pokemons</h3>
-      <Container style={{ marginTop: '40px' }}>
         {loading && (
           <Row>
             <Col>
@@ -53,16 +53,20 @@ function Home() {
             {data &&
               data.pokemons &&
               data.pokemons.map(item => (
-                <Card
+                <Link
                   key={item.id}
-                  imageUrl={item.image}
-                  title={item.name}
-                  number={item.number}
-                  classification={item.classification}
-                  fleeRate={item.fleeRate}
-                  resistant={item.resistant}
-                  types={item.types}
-                />
+                  to={`/detail/${item.id}/${item.name}`}
+                >
+                  <Card
+                    imageUrl={item.image}
+                    title={item.name}
+                    number={item.number}
+                    classification={item.classification}
+                    fleeRate={item.fleeRate}
+                    resistant={item.resistant}
+                    types={item.types}
+                  />
+                </Link>
               ))}
           </CardColumns>
         </Row>
