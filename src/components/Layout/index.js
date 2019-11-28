@@ -2,6 +2,10 @@ import React from 'react'
 import Navigation from '../Navigation'
 import { Container } from 'react-bootstrap'
 
+/**
+ *
+ * @param {React.Node} props.children
+ */
 const LayoutBody = ({ children }) => {
   return <main>{children}</main>
 }

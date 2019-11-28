@@ -7,6 +7,17 @@ import {
   faStar,
 } from '@fortawesome/free-solid-svg-icons'
 
+/**
+ *
+ * @param {String} props.id
+ * @param {String} props.imageUrl
+ * @param {String} props.name
+ * @param {String} props.number
+ * @param {String} props.classification
+ * @param {Number} props.fleeRate
+ * @param {String} props.resistant
+ * @param {String} props.types
+ */
 function StyledCard({
   id,
   imageUrl,
@@ -25,7 +36,7 @@ function StyledCard({
           <FontAwesomeIcon icon={faChevronCircleRight} /> {number}
         </Badge>
         <Card.Title>
-        <h3>{name}</h3>
+          <h3>{name}</h3>
         </Card.Title>
         <Card.Subtitle>
           {classification}{' '}

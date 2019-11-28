@@ -49,6 +49,10 @@ const POKEMON = gql`
   }
 `
 
+/**
+ *
+ * @param {Array <any>} props.item
+ */
 function RenderNamePokemon({ item }) {
   return (
     <React.Fragment>
@@ -59,6 +63,10 @@ function RenderNamePokemon({ item }) {
   )
 }
 
+/**
+ *
+ * @param {Array <any>} props.item
+ */
 function RenderItemPokemon({ item }) {
   return (
     <React.Fragment>
@@ -195,6 +203,10 @@ function RenderItemPokemon({ item }) {
   )
 }
 
+/**
+ *
+ * @param {Boolean} props.loading
+ */
 function RenderLoading({ loading }) {
   return (
     <React.Fragment>
@@ -209,6 +221,10 @@ function RenderLoading({ loading }) {
   )
 }
 
+/**
+ *
+ * @param {Boolean} props.error
+ */
 function RenderError({ error }) {
   return (
     <React.Fragment>

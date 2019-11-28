@@ -22,6 +22,70 @@ const POKEMONS = gql`
   }
 `
 
+/**
+ *
+ * @param {Boolean} props.loading
+ */
+function RenderLoading({ loading }) {
+  return (
+    <React.Fragment>
+      {loading && (
+        <Row>
+          <Col>
+            <StyledLoading />
+          </Col>
+        </Row>
+      )}
+    </React.Fragment>
+  )
+}
+
+/**
+ *
+ * @param {Boolean} props.error
+ */
+function RenderError({ error }) {
+  return (
+    <React.Fragment>
+      {error && (
+        <Row>
+          <Col>
+            <StyledError />
+          </Col>
+        </Row>
+      )}
+    </React.Fragment>
+  )
+}
+
+/**
+ *
+ * @param {Array <any>} props.item
+ */
+function RenderItem({ item }) {
+  return (
+    <Row>
+      <CardColumns>
+        {item &&
+          item.pokemons &&
+          item.pokemons.map(items => (
+            <Card
+              key={items.id}
+              id={items.id}
+              imageUrl={items.image}
+              name={items.name}
+              number={items.number}
+              classification={items.classification}
+              fleeRate={items.fleeRate}
+              resistant={items.resistant}
+              types={items.types}
+            />
+          ))}
+      </CardColumns>
+    </Row>
+  )
+}
+
 function Home() {
   const { loading, error, data } = useQuery(POKEMONS, {
     variables: {
@@ -33,39 +97,9 @@ function Home() {
     <Layout>
       <Container style={{ marginTop: '60px' }}>
         <h3>List All Pokemons</h3>
-        {loading && (
-          <Row>
-            <Col>
-              <StyledLoading />
-            </Col>
-          </Row>
-        )}
-        {error && (
-          <Row>
-            <Col>
-              <StyledError />
-            </Col>
-          </Row>
-        )}
-        <Row>
-          <CardColumns>
-            {data &&
-              data.pokemons &&
-              data.pokemons.map(item => (
-                <Card
-                  key={item.id}
-                  id={item.id}
-                  imageUrl={item.image}
-                  name={item.name}
-                  number={item.number}
-                  classification={item.classification}
-                  fleeRate={item.fleeRate}
-                  resistant={item.resistant}
-                  types={item.types}
-                />
-              ))}
-          </CardColumns>
-        </Row>
+        <RenderLoading loading={loading} />
+        <RenderError error={error} />
+        <RenderItem item={data} />
       </Container>
     </Layout>
   )
