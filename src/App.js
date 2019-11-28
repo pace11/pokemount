@@ -1,7 +1,7 @@
 import React from "react";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "@apollo/react-hooks";
-import Home from "../src/pages/Home";
+import RouterApp from './routes'
 
 const client = new ApolloClient({
   uri: "https://graphql-pokemon.now.sh/ "
@@ -9,7 +9,7 @@ const client = new ApolloClient({
 
 const App = () => (
   <ApolloProvider client={client}>
-    <Home />
+    <RouterApp />
   </ApolloProvider>
 );
 
