@@ -39,6 +39,7 @@
     ]
   },
   "devDependencies": {
-    "@svgr/cli": "^4.3.3"
+    "@svgr/cli": "^4.3.3",
+    "flow-bin": "0.111.3"
   }
 }
