@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { useQuery } from "@apollo/react-hooks";
-import { gql } from "apollo-boost";
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { useQuery } from '@apollo/react-hooks'
+import { gql } from 'apollo-boost'
 
 const POKEMONS = gql`
   query getAllPokemons($first: Int!) {
@@ -11,17 +11,17 @@ const POKEMONS = gql`
       image
     }
   }
-`;
+`
 
 function Home() {
   const { loading, error, data } = useQuery(POKEMONS, {
     variables: {
-      first: 10
-    }
-  });
+      first: 10,
+    },
+  })
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(</p>;
+  if (loading) return <p>Loading...</p>
+  if (error) return <p>Error :(</p>
 
   return data.pokemons.map(item => (
     <div key={item.id}>
@@ -30,7 +30,7 @@ function Home() {
         <img src={item.image} alt={item.image} />
       </Link>
     </div>
-  ));
+  ))
 }
 
-export default Home;
+export default Home

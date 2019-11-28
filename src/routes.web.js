@@ -1,7 +1,11 @@
-import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Detail from "./pages/Detail";
+import React from 'react'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom'
+import Home from './pages/Home'
+import Detail from './pages/Detail'
 
 export default function RouterApp() {
   return (
@@ -17,5 +21,5 @@ export default function RouterApp() {
         </Switch>
       </div>
     </Router>
-  );
+  )
 }
